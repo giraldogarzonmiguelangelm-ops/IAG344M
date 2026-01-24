@@ -1,0 +1,76 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Chatbot Inteligente</title>
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                background: white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;       /* Esto hace que ocupe toda la altura disponible */
+            }
+            #chatbot{
+                background: white;
+                width: 400px;
+                border-radius: 15px;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+            }
+            #messages{
+                flex-grow: 1; /* Hace que el elemento crezca y ocupe el espacio disponible dentro de un contenedor flexx */
+                overflow-y: auto;   /* Evita el contenido se salga del contenedor, y el auto hace que aparezca scroll vertical solo si hace falta */
+                margin-bottom: 15px; 
+                
+                
+            }
+            .msg{margin: 8px 0;}
+            .user{text-align: right; color: blue;}
+            .bot{text-align: left; color: rgb(18, 151, 18);}
+            input[type="text"]{
+                width: 95%;
+                padding: 10px;
+                border: 1px solid wheat;
+                border-radius: 10px;
+                outline: none;    /* Quita el borde que aparece al hacer focus(click o navegación con el teclado), se usa cuando se va a reemplazar por otro indicador visual, o para diseño custom */
+            }
+        </style>
+    </head>
+    <body>
+        <div id="chatbot">
+            <h2>🤖 CHATBOT</h2>
+            <div id="messages"></div>
+            <form id="chatform">
+                <input type="text" id="userinput" placeholder="Escribe tu mensaje.." autocomplete="off">
+            </form>
+        </div>
+        <script>
+            /*Guarda en variables constantes los datos del html */
+            const form=document.getElementById("chatform");   
+            const input=document.getElementById("userinput");
+            const messages=document.getElementById("messages");
+            form.addEventListener("submit",async(e)=>{    /* Agrega el evento de enter  */
+                e.preventDefault();                       /* Evita que se pierdan los mensajes o se recargue la página */
+                const text=input.value.trim();            /* Guarda en la variable text lo que escribió el usuario en el input */
+                if(!text)return;                          /* Si el usuario dió Enter con la caja vacía no retorna nada */
+                messages.innerHTML+=`<div class="msg user">Tú:${text}</div>`  /*innerHTML es para que agregue el contenido al chat, y el div para que se vea */
+                input.value="";      /* Limpia el input después de enviar el mensaje */
+                const response=await fetch("/chat",{    /* Espera a que la respuesta llegue, pide el http con el fetch, y /chat es la ruta a la que se envía la petición */
+                    method:"POST",      /* La petición es de tipo post, enviar datos al servidor */
+                    headers:{"Content-Type": "application/x-www-form-urlencoded"},   /*Indica el tipo de contenido que se esta enviando, (application/x-www-form-urlencoded)Se utiliza por lo general para formularios html */
+                    body: `message=${encodeURIComponent(text)}`   /* Se envía el contenido al servidor, lo que el usuario escribe sin caracteres especiales,  */
+
+                });
+                const data = await response.json();  /* Es la respuesta del bot guardada en la variable data, esperando que la respuesta del servidor sea JSON*/
+                messages.innerHTML += `<div class="msg bot">Bot:${data.response}</div>`;  /* Muestra la respuesta del bot al usuario utilizando el div class, y agregandolo con innerHTML */
+                messages.scrollTop=messages.scrollHeight;   /* Desplaza el chat automaticamente hacia abajo cuando aparece un nuevo mensaje, scrolltop es la posición del scroll, y scrollheight la altura total del contenido */
+            })
+        </script>
+        
+    </body>
+    </html>
