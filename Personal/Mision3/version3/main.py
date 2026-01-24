@@ -13,7 +13,7 @@ def chat():           #Función que maneja la conversación
         user_text = request.form.get("message","")   #Obtiene el mensaje del usuario, buscandolo en el campo llamado message, y si no encuentra nada devuelve cadena vacía
         if not user_text.strip():      #Verifica si el usuario envio espacios en blanco, elimina los espacios al inicio y al fin, 
                 return jsonify({"response":"Por Favor escribe algo 😊"})        #Si el espacio esta vacío devuelve un JSON con la respuesta
-        response =predict_answer(model,vectorizer,unique_answers,user_text)
-        return jsonify({"response":response})
-if __name__ == "__main__":
-    app.run(host="0.0.0.0",port=5000)
+        response =predict_answer(model,vectorizer,unique_answers,user_text)   #Llama a la función predict_answer, para obtener la respuesta del bot y lo guarda en response
+        return jsonify({"response":response})      #Envia la respuesta que recibimos en el fetch de nuestros scripts en formato JSON al navegador
+if __name__ == "__main__":                #Comprueba si el archivo se está ejecutando directamente
+    app.run(host="0.0.0.0",port=5000)  #Inicia el servidor flask,(host="0.0.0.0", port=5000):Hace que la app sea accesible desde otros dispositivos de la misma red,(port=5000):Puerto donde la app escucha (puedes abrir http://localhost:5000).     
