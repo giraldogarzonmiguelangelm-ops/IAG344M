@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ducati Colombia | Experiencia Oficial</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark px-2">
+    <div class="container position-relative d-flex align-items-center">
+        <!-- MENÚ IZQUIERDO -->
+        <a class="navbar-brand fw-bold" href="#">DUCATI</a>
+
+        <!-- LOGO CENTRADO -->
+        <a class="navbar-brand logo1" href="#">
+            <img src="{{ url_for('static', filename='imgs/Ducati_red_logo.png') }}" alt="Ducati" class="logo-ducati">
+        </a>
+
+        <!-- TOGGLER MOBILE -->
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#menuMobile">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+
+    <!-- MENÚ MOBILE -->
+    <div class="collapse navbar-collapse bg-black px-2" id="menuMobile">
+        <ul class="navbar-nav text-center py-3">
+            <li class="nav-item"><a class="nav-link" href="#modelos">Modelos</a></li>
+            <li class="nav-item"><a class="nav-link" href="#tipos">Tipos</a></li>
+            <li class="nav-item"><a class="nav-link" href="#precios">Precios</a></li>
+            <li class="nav-item"><a class="nav-link" href="#quienes_somos">Quiénes Somos</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="quienes_somos">
+    <div class="hero-overlay"></div>
+    <div class="hero-content text-center">
+        <h1 class="mt-5">Pasión Italiana en Dos Ruedas</h1>
+        <p class="hero-subtitle">Rendimiento, diseño y tecnología Ducati</p>
+        <p class="hero-bio">
+        Ducati es una marca icónica nacida en Italia, sinónimo de pasión, innovación y excelencia en el mundo de las motocicletas.
+        Desde sus inicios, Ducati ha combinado ingeniería de alto rendimiento con un diseño inconfundible, creando máquinas que no solo se conducen,
+        sino que se sienten. Su propósito es claro: ofrecer experiencias únicas sobre dos ruedas, llevando la emoción, la tecnología y el ADN racing
+        a cada motociclista.
+        </p>
+        <a href="#modelos" class="btn btn-ducati">Explorar modelos</a>
+    </div>
+</header>
+
+<!-- MODELOS -->
+<section id="modelos" class="section">
+    <div class="container">
+        <h2 class="section-title">Modelos Destacados</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="bike-card">
+                    <img src="{{ url_for('static', filename='imgs/panigale_v4.jpg') }}" alt="Panigale V4">
+                    <h5>Panigale V4</h5>
+                    <p>Superbike de competición.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="bike-card">
+                    <img src="{{ url_for('static', filename='imgs/monster.jpg') }}" alt="Monster">
+                    <h5>Monster</h5>
+                    <p>Potencia urbana y carácter.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="bike-card">
+                    <img src="{{ url_for('static', filename='imgs/multistrada.jpg') }}" alt="Multistrada">
+                    <h5>Multistrada</h5>
+                    <p>Aventura sin límites.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TIPOS -->
+<section id="tipos" class="section bg-light">
+    <div class="container text-center">
+        <h2 class="section-title">Tipos de Motos</h2>
+        <div class="row">
+            <div class="col-md-3">Superbike</div>
+            <div class="col-md-3">Naked</div>
+            <div class="col-md-3">Adventure</div>
+            <div class="col-md-3">Sport Touring</div>
+        </div>
+    </div>
+</section>
+
+<!-- PRECIOS -->
+<section id="precios" class="section">
+    <div class="container text-center">
+        <h2 class="section-title">Rangos de Precios</h2>
+        <p>Desde $15.000 hasta $35.000+ USD</p>
+    </div>
+</section>
+
+<!-- BOTÓN CHATBOT FLOTANTE -->
+<button class="chatbot-btn">🤖</button>
+<!-- CHATBOT CONTAINER -->
+ <div id="chatbot-container" style="display:none; flex-direction: column; position: fixed; bottom: 90px; right: 25px; width: 300px; height: 400px; background: #fff; border-radius: 10px; box-shadow: 0 5px 25px rgba(0,0,0,.3); z-index: 1000;">
+    <div id="chatbot-header">
+        <h5>Asesor Ducati</h5>
+        <button id="close-chatbot">❎</button>
+    </div>
+    <div id="chatbot-messages"></div>
+    <input type="text" id="chatbot-input" placeholder="Escribe tu mensaje..">
+    <button id="chatbot-send">Enviar</button>
+ </div>
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Ducati | Proyecto Académico</p>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+</html>
