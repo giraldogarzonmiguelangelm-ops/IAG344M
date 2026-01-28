@@ -7,7 +7,6 @@ window.addEventListener('scroll', () => {
         navbar.classList.remove('scrolled');
     }
 });
-<script src="{{ url_for('static', filename='scripts.js') }}"></script>
 const chatbotBtn = document.querySelector('.chatbot-btn');
 const chatbotContainer = document.getElementById('chatbot-container');
 const closeChat = document.getElementById('close-chatbot');
