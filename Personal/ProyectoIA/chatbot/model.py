@@ -1,70 +1,36 @@
-# ChatBot Ducati
 import os
-import pickle
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn.naive_bayes import MultinomialNB
+from groq import Groq
+from dotenv import load_dotenv
+load_dotenv()
+# Configura tu API KEY
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
-MODEL_DIR = "models"
-MODEL_PATH = os.path.join(MODEL_DIR, "model.pkl")
-VECTORIZER_PATH = os.path.join(MODEL_DIR, "vectorizer.pkl")
-ANSWERS_PATH = os.path.join(MODEL_DIR, "answers.pkl")
+def predict_answer(history): # Cambiamos user_text por history
+    prompt_sistema = """
+    Eres el Asesor Experto de Ducati Colombia. 
+    Tu objetivo es ayudar a los clientes a elegir la moto de sus sueños.
+    
+    Reglas de comportamiento:
+    1. Usa tu conocimiento interno sobre todos los modelos de Ducati (Panigale, Multistrada, Monster, Scrambler, Streetfighter, Diavel, DesertX, Hypermotard, etc.).
+    2. Si el usuario te pregunta por una moto para un uso específico (ciudad, pista, viajes largos, off-road), recomienda los modelos actuales más adecuados.
+    3. Habla de tecnicismos como el motor Desmodromic, el chasis y la electrónica de forma apasionada.
+    4. Si el usuario te pregunta precios, menciona que pueden variar, dale lo que podrian costar y recomiéndale visitar las vitrinas oficiales de Bogotá, Medellín, Cali o Barranquilla.
+    5. Mantén un tono elegante, aspiracional y muy profesional (estilo italiano).
+    6. Responde siempre en español.
+    7. DEBES recordar los datos que el usuario te da (su nombre, qué moto le gusta, su nivel de experiencia). Si el usuario dice 'esa moto', sabrás que se refiere a la mencionada anteriormente en el historial.
+    8. Si el usuario no te pregunta sobre el cilindraje o algo mas aparte de su modelo, uso o precio no lo hagas, solo hazlo si lo ves necesario para la conversación.
+    9. No escribas tanto, eso puede aburrir al usuario.
+    """
 
+    # Creamos la lista de mensajes empezando por el sistema + el historial que viene del main
+    messages_for_api = [{"role": "system", "content": prompt_sistema}] + history
 
-def build_and_train_model(train_pairs):
-    # Separar preguntas y respuestas
-    questions = [q for q, _ in train_pairs]
-    answers = [a for _, a in train_pairs]
-
-    # Vectorizar texto
-    vectorizer = CountVectorizer()
-    x = vectorizer.fit_transform(questions)
-
-    # Crear etiquetas
-    unique_answers = sorted(set(answers))
-    answer_to_label = {a: i for i, a in enumerate(unique_answers)}
-    y = [answer_to_label[a] for a in answers]
-
-    # Entrenar modelo
-    model = MultinomialNB()
-    model.fit(x, y)
-
-    # Crear carpeta si no existe
-    os.makedirs(MODEL_DIR, exist_ok=True)
-
-    # Guardar modelo y objetos
-    with open(MODEL_PATH, "wb") as f:
-        pickle.dump(model, f)
-
-    with open(VECTORIZER_PATH, "wb") as f:
-        pickle.dump(vectorizer, f)
-
-    with open(ANSWERS_PATH, "wb") as f:
-        pickle.dump(unique_answers, f)
-
-    return model, vectorizer, unique_answers
-
-
-def load_model():
-    if (
-        os.path.exists(MODEL_PATH)
-        and os.path.exists(VECTORIZER_PATH)
-        and os.path.exists(ANSWERS_PATH)
-    ):
-        with open(MODEL_PATH, "rb") as f:
-            model = pickle.load(f)
-
-        with open(VECTORIZER_PATH, "rb") as f:
-            vectorizer = pickle.load(f)
-
-        with open(ANSWERS_PATH, "rb") as f:
-            unique_answers = pickle.load(f)
-
-        return model, vectorizer, unique_answers
-
-    return None, None, None
-
-
-def predict_answer(model, vectorizer, unique_answers, user_text):
-    x = vectorizer.transform([user_text])
-    label = model.predict(x)[0]
-    return unique_answers[label]
+    try:
+        completion = client.chat.completions.create(
+            model="llama-3.3-70b-versatile",
+            messages=messages_for_api, # Pasamos toda la conversación
+            temperature=0.7,
+        )
+        return completion.choices[0].message.content
+    except Exception as e:
+        return f"Lo siento, Rosso. Hubo un error en la conexión: {str(e)}"
