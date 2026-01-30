@@ -19,13 +19,13 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark px-2">
     <div class="container position-relative d-flex align-items-center">
+
         <!-- MENÚ IZQUIERDO -->
         <a class="navbar-brand fw-bold" href="#">DUCATI</a>
 
         <!-- LOGO CENTRADO -->
-        <a class="navbar-brand logo1" href="#">
-            <img src="{{ url_for('static', filename='imgs/Ducati_red_logo.png') }}" alt="Ducati" class="logo-ducati">
-        </a>
+        <div class="navbar-brand logo1" href="https://ibb.co/8nTHJgj5">
+        <img class = "logo-ducati"src="https://i.ibb.co/WNqLQvcy/Ducati-red-logo.png" alt="Ducati-red-logo"></div>
 
         <!-- TOGGLER MOBILE -->
         <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#menuMobile">
@@ -46,90 +46,466 @@
 
 <!-- HERO -->
 <header class="hero" id="quienes_somos">
+
     <div class="hero-overlay"></div>
+
     <div class="hero-content text-center">
         <h1 class="mt-5">Pasión Italiana en Dos Ruedas</h1>
         <p class="hero-subtitle">Rendimiento, diseño y tecnología Ducati</p>
         <p class="hero-bio">
-        Ducati es una marca icónica nacida en Italia, sinónimo de pasión, innovación y excelencia en el mundo de las motocicletas.
-        Desde sus inicios, Ducati ha combinado ingeniería de alto rendimiento con un diseño inconfundible, creando máquinas que no solo se conducen,
-        sino que se sienten. Su propósito es claro: ofrecer experiencias únicas sobre dos ruedas, llevando la emoción, la tecnología y el ADN racing
-        a cada motociclista.
+            Ducati es una marca icónica nacida en Italia, sinónimo de pasión, innovación y excelencia en el mundo de las motocicletas.
+            Desde sus inicios, Ducati ha combinado ingeniería de alto rendimiento con un diseño inconfundible.
         </p>
         <a href="#modelos" class="btn btn-ducati">Explorar modelos</a>
     </div>
 </header>
 
+
 <!-- MODELOS -->
 <section id="modelos" class="section">
     <div class="container">
-        <h2 class="section-title">Modelos Destacados</h2>
+         <div class="section-heading text-center">
+            <span class="section-tag"> ducati Models</span>
+            <h2 class="section-title-2">Nuestros Modelos</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle-2">
+                Modelos para todas las personalidades
+            </p>
+        </div>
         <div class="row g-4">
             <div class="col-md-4">
-                <div class="bike-card">
-                    <img src="{{ url_for('static', filename='imgs/panigale_v4.jpg') }}" alt="Panigale V4">
+                <div class="bike-card" data-bs-toggle="modal" data-bs-target="#modalPanigale" style="cursor: pointer;">
+                    <img src="https://www.ducaticolombia.co/wp-content/uploads/2022/09/Panigale-V4-S-768x475-1.png" alt="Panigale V4">
                     <h5>Panigale V4</h5>
-                    <p>Superbike de competición.</p>
+                    <p class="sub-text">Superbike de competición.</p>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="bike-card">
-                    <img src="{{ url_for('static', filename='imgs/monster.jpg') }}" alt="Monster">
+                <div class="bike-card" data-bs-toggle="modal" data-bs-target="#modalMonster" style="cursor: pointer;">
+                    <img src="https://ducatimadrid.com/wp-content/uploads/2025/04/MODELOS-lateral-6.png.webp" alt="Monster">
                     <h5>Monster</h5>
-                    <p>Potencia urbana y carácter.</p>
+                    <p class="sub-text">Naked Deportiva.</p>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="bike-card">
-                    <img src="{{ url_for('static', filename='imgs/multistrada.jpg') }}" alt="Multistrada">
-                    <h5>Multistrada</h5>
-                    <p>Aventura sin límites.</p>
+                <div class="bike-card" data-bs-toggle="modal" data-bs-target="#modalMultistrada" style="cursor: pointer;">
+                    <img src="https://www.ducaticolombia.co/wp-content/uploads/2025/12/Multistrada-V4-Pikes-Peak-MY25-Model-Menu-780x430-1.png" alt="Multistrada">
+                    <h5>Multistrada V4</h5>
+                    <p class="sub-text">Adventure.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="bike-card" data-bs-toggle="modal" data-bs-target="#modalScrambler" style="cursor: pointer;">
+                    <img src="https://www.ducaticolombia.co/scrambler/wp-content/uploads/2022/04/Scrambler-Full-Throttle-MY25-Model-Blocks.png" alt="Scrambler">
+                    <h5>Scrambler</h5>
+                    <p class="sub-text">Sport Touring.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="bike-card" data-bs-toggle="modal" data-bs-target="#modalDesertX" style="cursor: pointer;">
+                    <img src="https://images.ctfassets.net/x7j9qwvpvr5s/2r5kPiUXfQiCGDtSlSoaLY/5ede8d308f17dbd9d7ad0a3cb8a5f1cf/DesertX-Borse-MY25-Model-Menu-780x430.png" alt="DesertX">
+                    <h5>DesertX</h5>
+                    <p class="sub-text"> Adventure.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="bike-card" data-bs-toggle="modal" data-bs-target="#modalHypermotard" style="cursor: pointer;">
+                    <img src="https://www.ducaticolombia.co/wp-content/uploads/2025/12/Nueva-Hypermotard-V2-SP.png" alt="Hypermotard">
+                    <h5>Hypermotard</h5>
+                    <p class="sub-text"> Superbike.</p>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<div class="modal fade" id="modalPanigale" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content text-dark">
+            <div class="modal-header border-0">
+                <h5 class="modal-title fw-bold text-danger">Panigale V4 S - The Evolution of Speed</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center">
+                        <img src="https://www.ducaticolombia.co/wp-content/uploads/2022/09/Panigale-V4-S-768x475-1.png" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-6">
+                        <p>Desarrollada en colaboración con Ducati Corse, es lo más cercano a una MotoGP que puedes conducir legalmente.</p>
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item"><strong>Motor:</strong> Desmosedici Stradale V4 a 90°</li>
+                            <li class="list-group-item"><strong>Potencia:</strong> 215.5 hp @ 13,000 rpm</li>
+                            <li class="list-group-item"><strong>Peso en seco:</strong> 174 kg</li>
+                            <li class="list-group-item"><strong>Tecnología:</strong> Aero-winglets, Ohlins NPX 25/30</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalMonster" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content text-dark">
+            <div class="modal-header border-0">
+                <h5 class="modal-title fw-bold text-danger">Ducati Monster - Just Fun</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center">
+                        <img src="https://ducatimadrid.com/wp-content/uploads/2025/04/MODELOS-lateral-6.png.webp" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-6">
+                        <p>La esencia de Ducati en el formato más compacto, ligero y manejable posible. Ideal para el uso diario y curvas de fin de semana.</p>
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item"><strong>Motor:</strong> Testastretta 11° de 937 cc</li>
+                            <li class="list-group-item"><strong>Potencia:</strong> 111 hp @ 9,250 rpm</li>
+                            <li class="list-group-item"><strong>Cuadro:</strong> Front Frame de aluminio (tipo Panigale)</li>
+                            <li class="list-group-item"><strong>Electrónica:</strong> Ducati Quick Shift, Launch Control</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalMultistrada" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content text-dark">
+            <div class="modal-header border-0">
+                <h5 class="modal-title fw-bold text-danger">Multistrada V4 Pikes Peak</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center">
+                        <img src="https://www.ducaticolombia.co/wp-content/uploads/2025/12/Multistrada-V4-Pikes-Peak-MY25-Model-Menu-780x430-1.png" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-6">
+                        <p>Cuatro motos en una. La crossover deportiva definitiva con intervalos de mantenimiento récord (cada 60,000km).</p>
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item"><strong>Motor:</strong> V4 Granturismo</li>
+                            <li class="list-group-item"><strong>Potencia:</strong> 170 hp @ 10,500 rpm</li>
+                            <li class="list-group-item"><strong>Innovación:</strong> Radar frontal/trasero (Cruise Control)</li>
+                            <li class="list-group-item"><strong>Modos:</strong> Sport, Touring, Urban y Enduro</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalScrambler" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content text-dark">
+            <div class="modal-header border-0">
+                <h5 class="modal-title fw-bold text-danger">Scrambler Full Throttle</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center">
+                        <img src="https://www.ducaticolombia.co/scrambler/wp-content/uploads/2022/04/Scrambler-Full-Throttle-MY25-Model-Blocks.png" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-6">
+                        <p>Inspirada en el Flat Track. Es la opción más personalizable y con una actitud rebelde y urbana.</p>
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item"><strong>Motor:</strong> Bicilíndrico en L de 803 cc</li>
+                            <li class="list-group-item"><strong>Estilo:</strong> Escape Termignoni de serie</li>
+                            <li class="list-group-item"><strong>Pantalla:</strong> TFT de 4.3" a color</li>
+                            <li class="list-group-item"><strong>Seguridad:</strong> Cornering ABS</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalDesertX" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content text-dark">
+            <div class="modal-header border-0">
+                <h5 class="modal-title fw-bold text-danger">DesertX - Dream Wilder</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center">
+                        <img src="https://images.ctfassets.net/x7j9qwvpvr5s/2r5kPiUXfQiCGDtSlSoaLY/5ede8d308f17dbd9d7ad0a3cb8a5f1cf/DesertX-Borse-MY25-Model-Menu-780x430.png" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-6">
+                        <p>Diseñada para los terrenos más hostiles. Con rueda delantera de 21" y una estética retro-rally espectacular.</p>
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item"><strong>Motor:</strong> Testastretta 11° de 937 cc</li>
+                            <li class="list-group-item"><strong>Autonomía:</strong> Opción de depósito auxiliar trasero</li>
+                            <li class="list-group-item"><strong>Suspensión:</strong> Kayaba de largo recorrido (230mm)</li>
+                            <li class="list-group-item"><strong>Electrónica:</strong> 6 Modos de manejo específicos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalHypermotard" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content text-dark">
+            <div class="modal-header border-0">
+                <h5 class="modal-title fw-bold text-danger">Hypermotard 950 SP</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-center">
+                        <img src="https://www.ducaticolombia.co/wp-content/uploads/2025/12/Nueva-Hypermotard-V2-SP.png" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-6">
+                        <p>Game On. Posición de manejo erguida, suspensiones largas y una agilidad sorprendente para "jugar" en cada curva.</p>
+                        <ul class="list-group list-group-flush small">
+                            <li class="list-group-item"><strong>Motor:</strong> Testastretta 11° de 114 hp</li>
+                            <li class="list-group-item"><strong>Componentes:</strong> Llantas Marchesini forjadas</li>
+                            <li class="list-group-item"><strong>Peso:</strong> Reducción extrema mediante fibra de carbono</li>
+                            <li class="list-group-item"><strong>Diversión:</strong> Slide-by-Brake (Derrape controlado)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- TIPOS -->
 <section id="tipos" class="section bg-light">
     <div class="container text-center">
-        <h2 class="section-title">Tipos de Motos</h2>
-        <div class="row">
-            <div class="col-md-3">Superbike</div>
-            <div class="col-md-3">Naked</div>
-            <div class="col-md-3">Adventure</div>
-            <div class="col-md-3">Sport Touring</div>
+    <div class="section-heading">
+        <span class="section-tag">Ducati Range</span>
+        <h2 class="section-title-1">Tipos de Motos</h2>
+        <div class="section-divider"></div>
+        <p class="section-subtitle">
+        Diseñadas para ofrecer experiencias únicas, desde la pista hasta la aventura.
+        </p>
+    </div>
+    </div>
+
+        <div class="row g-4 mt-4 p-4">
+            <div class="col-md-3">
+                <div class="type-card">
+                    <h5>Superbike</h5>
+                    <p>Se caracteriza por su motor de gran cilindrada, 
+                    aerodinámica agresiva, chasis ligero y tecnología avanzada como control de tracción, 
+                    modos de manejo y frenos de alto desempeño. Es una moto pensada para pilotos 
+                    con experiencia que buscan sensaciones deportivas al nivel más alto.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="type-card">
+                    <h5>Naked</h5>
+                    <p>Combina potencia y estilo agresivo con una posición de manejo más erguida 
+                    que una Superbike, ideal para ciudad y carreteras. Mantiene tecnología moderna 
+                    (modos de conducción, control de tracción, ABS) pero con un enfoque más versátil 
+                    que extremo.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="type-card">
+                    <h5>Adventure</h5>
+                    <p>Tiene posición de manejo cómoda, suspensión de largo recorrido, 
+                    gran autonomía y tecnología avanzada como modos de conducción, control de tracción y ABS en curva. 
+                    Es ideal para quienes quieren recorrer carretera, montaña y caminos destapados con seguridad y confort.</p>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="type-card">
+                    <h5>Sport Touring</h5>
+                    <p> Ofrece una postura de conducción más relajada que una Superbike, 
+                        buena protección contra el viento, motor potente pero manejable y tecnología de asistencia 
+                        (modos de manejo, control de tracción, ABS). Es ideal para quienes quieren disfrutar curvas 
+                        y velocidad, pero también hacer trayectos largos sin cansarse.</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
+
 <!-- PRECIOS -->
-<section id="precios" class="section">
-    <div class="container text-center">
-        <h2 class="section-title">Rangos de Precios</h2>
-        <p>Desde $15.000 hasta $35.000+ USD</p>
+<section id="precios" class="section bg-light">
+    <div class="container">
+        
+        <!-- TÍTULO -->
+        <div class="section-heading text-center">
+            <span class="section-tag">Pricing</span>
+            <h2 class="section-title-1">Rangos de Precios</h2>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">
+                Valores aproximados según versión y mercado.
+            </p>
+        </div>
+
+        <!-- ACCORDION -->
+        <div class="accordion accordion-flush mt-5" id="accordionPrecios">
+
+            <!-- PANIGALE V4 -->
+            <div class="accordion-item price-card">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#panigale">
+                        Panigale V4
+                    </button>
+                </h2>
+                <div id="panigale" class="accordion-collapse collapse"
+                    data-bs-parent="#accordionPrecios">
+                    <div class="accordion-body">
+                        <p>Superbike de alto rendimiento inspirada directamente en MotoGP,
+                        diseñada para pista y máxima adrenalina.</p>
+                        <span class="price-range">$28.000 – $35.000+ USD</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MULTISTRADA V4 -->
+            <div class="accordion-item price-card">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#multistrada">
+                        Multistrada V4
+                    </button>
+                </h2>
+                <div id="multistrada" class="accordion-collapse collapse"
+                    data-bs-parent="#accordionPrecios">
+                    <div class="accordion-body">
+                        <p>Adventure premium con tecnología avanzada, ideal para viajes largos
+                        en carretera y fuera de ella.</p>
+                        <span class="price-range">$24.000 – $30.000 USD</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MONSTER -->
+            <div class="accordion-item price-card">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#monster">
+                        Monster
+                    </button>
+                </h2>
+                <div id="monster" class="accordion-collapse collapse"
+                    data-bs-parent="#accordionPrecios">
+                    <div class="accordion-body">
+                        <p>Naked icónica, ágil y potente, perfecta para ciudad y carreteras
+                        con carácter deportivo.</p>
+                        <span class="price-range">$15.000 – $18.000 USD</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SCRAMBLER -->
+            <div class="accordion-item price-card">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#scrambler">
+                        Scrambler
+                    </button>
+                </h2>
+                <div id="scrambler" class="accordion-collapse collapse"
+                    data-bs-parent="#accordionPrecios">
+                    <div class="accordion-body">
+                        <p>Estilo clásico con tecnología moderna, ideal para un manejo relajado
+                        y urbano.</p>
+                        <span class="price-range">$13.000 – $16.000 USD</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DESERTX -->
+            <div class="accordion-item price-card">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#desertx">
+                        DesertX
+                    </button>
+                </h2>
+                <div id="desertx" class="accordion-collapse collapse"
+                    data-bs-parent="#accordionPrecios">
+                    <div class="accordion-body">
+                        <p>Inspirada en el Dakar, diseñada para aventura extrema y terrenos
+                        exigentes.</p>
+                        <span class="price-range">$18.000 – $22.000 USD</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HYPERMOTARD -->
+            <div class="accordion-item price-card">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#hypermotard">
+                        Hypermotard
+                    </button>
+                </h2>
+                <div id="hypermotard" class="accordion-collapse collapse"
+                    data-bs-parent="#accordionPrecios">
+                    <div class="accordion-body">
+                        <p>Máxima diversión, ligera y agresiva, pensada para curvas y
+                        conducción deportiva.</p>
+                        <span class="price-range">$17.000 – $20.000 USD</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 </section>
 
+
 <!-- BOTÓN CHATBOT FLOTANTE -->
-<button class="chatbot-btn">🤖</button>
-<!-- CHATBOT CONTAINER -->
- <div id="chatbot-container" style="display:none; flex-direction: column; position: fixed; bottom: 90px; right: 25px; width: 300px; height: 400px; background: #fff; border-radius: 10px; box-shadow: 0 5px 25px rgba(0,0,0,.3); z-index: 1000;">
-    <div id="chatbot-header">
-        <h5>Asesor Ducati</h5>
-        <button id="close-chatbot">x</button>
+<button class="chatbot-button" id="open-chat">
+    <span class="bot-icon">🤖</span>
+    <span class="bot-text">Tu asistente Ducati</span>
+</button>
+
+<div class="chat-container" id="chat-window">
+    <div class="resizer" id="chat-resizer"></div>
+    <div class="chat-header">
+        <span><i class="bi bi-robot"></i> Asistente Ducati</span>
+        <button id="close-chat" class="btn-close-chat">&times;</button>
     </div>
-    <div id="chatbot-messages"></div>
-    <input type="text" id="chatbot-input" placeholder="Escribe tu mensaje..">
-    <button id="chatbot-send">Enviar</button>
- </div>
+
+    <div class="chat-body" id="chat-content">
+        <div class="chat-message bot-message">
+            ¡Hola! Soy tu asistente Ducati. ¿En qué puedo ayudarte hoy?
+        </div>
+    </div>
+
+    <div class="quick-replies" id="quick-replies">
+        <button class="btn-suggestion" onclick="sendQuickReply('¿Cuál es la moto más rápida?')">🚀 Más rápida</button>
+        <button class="btn-suggestion" onclick="sendQuickReply('Ver precios de modelos')">💰 Precios</button>
+        <button class="btn-suggestion" onclick="sendQuickReply('¿Qué moto me recomiendas?')">🏍️ Recomendación</button>
+    </div>
+
+    <div class="chat-footer">
+        <input type="text" id="chat-input" placeholder="Escribe un mensaje..." autocomplete="off">
+        <button id="send-btn">➤</button>
+    </div>
+</div>
+
+
 <!-- FOOTER -->
 <footer>
     <p>© 2026 Ducati | Proyecto Académico</p>
 </footer>
 
-<!-- Scripts -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script src="{{ url_for('static', filename='scripts.js') }}"></script>
 </body>
 </html>
