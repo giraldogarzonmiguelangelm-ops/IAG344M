@@ -26,7 +26,7 @@ git commit -m "nombre del commit" <!-- Se le asigna un nombre a la caja en donde
 ![Github](image-3.png)
 ```
 git branch -M main <!-- Crea una nueva rama -->
-git remote add origin https://github.com/giraldogarzonmiguelangelm-ops/IAG344.git <!-- Conecta el git con el github, asío todo queda en la nube -->
+git remote add origin https://github.com/giraldogarzonmiguelangelm-ops/IAG344M.git <!-- Conecta el git con el github, asío todo queda en la nube -->
 git push -u origin main <!-- Actualiza los datos del archivo en la nube -->
 git clone <!-- Clona dependiendo la ruta que se añada -->
 git remote -v <!-- Sale el repositorio en el cual se trabaja -->
