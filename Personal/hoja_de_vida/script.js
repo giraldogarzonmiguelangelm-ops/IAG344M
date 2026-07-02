@@ -16,6 +16,7 @@ function downloadPDF(){
             format: 'a4',
             orientation: 'portrait' //Orientación Vertical
         },
+        //Quiebra las paginas de manera automatica
         pagebreak: {
             mode: ['css', 'legacy'],
             avoid: ['.card', 'section', 'header', 'li', 'h4', 'h5', 'h6']
