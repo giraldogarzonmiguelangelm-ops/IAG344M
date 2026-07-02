@@ -22,8 +22,16 @@
     box-shadow: 0 10px 20px rgba(0.0.0.0, 0.1);
 }
 .oval-vertical {
-  width: 420px;
-  height: 420px;
+  width: 220px;
+  height: 220px;
+  max-width: 100%;
   border-radius: 50%;
   object-fit: cover;
+}
+
+/* Evita que las tarjetas se corten a la mitad entre páginas del PDF */
+.card,
+section {
+  break-inside: avoid;
+  page-break-inside: avoid;
 }
