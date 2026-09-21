@@ -61,7 +61,7 @@ def chat():
     try:
         # Enviar todo el contexto acumulado de esta sesión a Groq
         completion = client.chat.completions.create(
-            model="llama-3.3-70b-versatile", 
+            model="openai/gpt-oss-120b", 
             messages=chat_histories[user_id],
             temperature=0.6, # Un poco más bajo para ser más preciso
             max_tokens=500
